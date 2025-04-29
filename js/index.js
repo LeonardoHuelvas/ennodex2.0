@@ -13,3 +13,8 @@
          subtree: true
      });
  });
+
+ // js/index.js (o inline)
+ particlesJS.load('particles-js', '/particles.json', () => {
+     console.log('particles.json cargado');
+ });
