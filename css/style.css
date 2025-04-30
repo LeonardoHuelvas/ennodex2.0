@@ -697,6 +697,19 @@ h2.section-title::after {
     margin-bottom: .5rem;
 }
 
+.container a {
+    color: #E67E22;
+    /* tu color principal */
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color .2s;
+    font-weight: 600;
+}
+
+.container a:hover {
+    border-color: currentColor;
+}
+
 
 /* ========================================
    Contact Section
