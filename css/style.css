@@ -939,7 +939,7 @@ h2.section-title::after {
 .footer__bottom {
     text-align: center;
     padding: 1rem;
-    background: rgba(46, 46, 46, 0.9);
+    background: rgba(20, 22, 39, 0.9);
 }
 
 .footer__bottom small {
@@ -962,3 +962,6 @@ h2.section-title::after {
         align-items: center;
     }
 }
+
+
+/* Bot diseño */

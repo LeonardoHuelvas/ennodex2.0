@@ -1,0 +1,61 @@
+/* enno-bot.css */
+
+.enno-bot-icon {
+    width: 80px;
+    height: 80px;
+    display: block;
+    /* override interno de Easy Peasy */
+    overflow: visible !important;
+    animation: pulse 2s ease-in-out infinite, rainbow 4s linear infinite;
+}
+
+
+/* Pulso con sombra */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(230, 126, 34, 0.7));
+    }
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.3));
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(230, 126, 34, 0));
+    }
+}
+
+
+/* Degradado arcoíris en el fill */
+
+@keyframes rainbow {
+    0% {
+        color: #E67E22;
+    }
+    25% {
+        color: #F1C40F;
+    }
+    50% {
+        color: #2ECC71;
+    }
+    75% {
+        color: #3498DB;
+    }
+    100% {
+        color: #E67E22;
+    }
+}
+
+
+/* Targetea el botón generado por Easy Peasy y aplica nuestra clase */
+
+.easy-peasy-chat-button img[src$="enno-bot-icon.svg"] {
+    /* La API inyecta un <img>; le añadimos la clase */
+    animation: pulse 2s ease-in-out infinite, rainbow 4s linear infinite;
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50%;
+    overflow: visible;
+}
