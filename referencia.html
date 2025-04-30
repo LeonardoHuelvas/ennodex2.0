@@ -33,6 +33,8 @@
             max-width: 600px;
             margin: 0 auto;
             position: relative;
+            background: rgba(240, 242, 245, 0.8);
+            /* o ningún fondo */
             z-index: 1;
         }
         
@@ -71,9 +73,11 @@
         
         #particles-js {
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             z-index: -1;
-            background: #041222;
         }
     </style>
 </head>
@@ -154,7 +158,7 @@
                 }
             },
             "interactivity": {
-                "detect_on": "canvas",
+                "detect_on": "windows",
                 "events": {
                     "onhover": {
                         "enable": true,
