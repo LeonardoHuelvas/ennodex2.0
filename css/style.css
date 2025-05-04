@@ -564,7 +564,7 @@ h2.section-title::after {
 /* Neumorphic card base */
 
 .neumorphic-card {
-    background: #1e2a38;
+    background-color: rgba(0, 25, 37, 0.5);
     border-radius: 1rem;
     padding: 2rem;
     max-width: 40rem;
@@ -711,110 +711,232 @@ h2.section-title::after {
 }
 
 
-/* ========================================
-   Contact Section
+/* card.css
+   ========================================
+   Estilos de la tarjeta de presentación
    ======================================== */
 
-.contact-section {
-    background: rgba(55, 75, 122, 0.75);
-    padding: 4rem 1rem;
-}
-
-.contact-section .container {
-    max-width: 600px;
+.card-column {
+    max-width: 320px;
     margin: 0 auto;
-}
-
-.contact-section .section-title {
-    font-size: 2rem;
-    color: #fff;
     text-align: center;
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.contact-section .section-title::after {
-    content: '';
-    display: block;
-    width: 4rem;
-    height: 3px;
-    background: #e08d29;
-    margin: .5rem auto 0;
-    border-radius: 2px;
+    font-weight: bolder;
 }
 
 
-/* Form styling */
+/* Título de la tarjeta (encabezado) */
 
-.contact-form {
-    background: #213448;
-    padding: 2rem;
-    border-radius: .5rem;
-    box-shadow: 0 4px 12px rgba(32, 69, 153, 0.5);
+.card-column .section-title {
+    font-size: 1.5rem;
+    color: #b2bfcd;
+    margin-bottom: 1rem;
 }
 
-.form-group {
-    margin-bottom: 1.25rem;
+
+/* Contenedor de la “tarjeta” */
+
+.card-column .card {
+    background-color: rgba(10, 25, 49, 0.5);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: .5rem;
-    color: #ccc;
-    font-weight: 500;
+
+/* Efecto hover para elevar un poco la tarjeta */
+
+.card-column .card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.form-group input,
-.form-group textarea {
+
+/* Imagen interna */
+
+.card-column .card img {
     width: 100%;
-    padding: .75rem 1rem;
-    border: 1px solid rgb(3, 35, 54);
-    border-radius: .375rem;
-    background: #2c3f54;
-    color: #fff;
-    font-size: 1rem;
-    transition: border-color .2s, background .2s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #e08d29;
-    background: #2a2a2a;
-    outline: none;
-}
-
-
-/* Button */
-
-.btn-submit {
+    height: auto;
     display: block;
-    width: 100%;
-    padding: .85rem;
-    background: #e08d29;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+
+/* Texto descriptivo */
+
+.card-column .card p {
+    font-size: 0.9rem;
+    color: #e9e2e2;
+    font-weight: 100;
+    line-height: 1.4;
+    margin: 0;
+}
+
+
+/* Botón opcional dentro de la tarjeta */
+
+.card-column .card .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #e08d29;
     color: #111;
+    border-radius: 0.3rem;
+    text-decoration: none;
     font-weight: 600;
-    text-transform: uppercase;
-    border: none;
-    border-radius: .375rem;
-    cursor: pointer;
-    transition: background .3s, transform .2s;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.btn-submit:hover {
-    background: #cf7d25;
+.card-column .card .btn:hover {
+    background-color: #cf7d25;
     transform: translateY(-2px);
 }
 
 
-/* Responsive tweaks */
+/* ----------------------------------------
+   Layout: dos columnas en una línea
+   ---------------------------------------- */
 
-@media (max-width: 480px) {
-    .contact-form {
-        padding: 1.5rem;
+.dual-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: start;
+    margin: 2rem 0;
+}
+
+
+/* En pantallas pequeñas baja a 1 columna */
+
+@media (max-width: 768px) {
+    .dual-columns {
+        grid-template-columns: 1fr;
     }
-    .btn-submit {
-        font-size: .9rem;
-    }
+}
+
+
+/* Ajustes de ancho máximo para cada columna */
+
+.card-column,
+.form-column {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/* contact.css
+   ========================================
+   Estilos de la sección de contacto
+   ======================================== */
+
+.orange {
+    color: #ff7a01;
+}
+
+.form-container {
+    max-width: 500px;
+    /* un poco más pequeño */
+    margin: 2rem auto;
+    /* centra y separa */
+    background-color: rgba(0, 25, 37, 0.5);
+    padding: 2rem;
+    /* menos padding que antes */
+    border-left: 5px solid #ff7a01;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.heading {
+    display: block;
+    color: white;
+    font-size: 1.25rem;
+    /* un poco más pequeño */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.form-container .form .input {
+    width: 100%;
+    background-color: rgba(6, 74, 106, 0.5);
+    border: none;
+    outline: none;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    /* menos espacio */
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    border-left: 1px solid transparent;
+}
+
+.form-container .form .input:focus {
+    border-left: 5px solid #ff7a01;
+}
+
+.form-container .form .textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    outline: none;
+    background-color: #013747;
+    color: #ff7a01;
+    font-weight: bold;
+    resize: none;
+    max-height: 120px;
+    /* más compacto */
+    margin-bottom: 1rem;
+    border-left: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-container .form .textarea:focus {
+    border-left: 5px solid #ff7a01;
+}
+
+.form-container .form .button-container {
+    display: flex;
+    gap: 0.5rem;
+    /* menos separación */
+}
+
+.form-container .form .button-container .send-button {
+    flex-basis: 65%;
+    background: #ff7a01;
+    padding: 0.75rem;
+    color: #001925;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.form-container .form .button-container .send-button:hover {
+    background: transparent;
+    border: 1px solid #ff7a01;
+    color: #ff7a01;
+}
+
+.form-container .form .button-container .reset-button-container {
+    flex-basis: 35%;
+}
+
+.form-container .form .button-container .reset-button-container .reset-button {
+    width: 100%;
+    padding: 0.75rem;
+    color: #ff7a01;
+    font-weight: bold;
+    background: #001925;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.form-container .form .button-container .reset-button-container .reset-button:hover {
+    background: #ff7a01;
+    color: #001925;
 }
 
 

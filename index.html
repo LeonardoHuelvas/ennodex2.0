@@ -152,10 +152,12 @@
             <div class="team-text neumorphic-card">
                 <h3 class="team-text__title">Profesionales apasionados</h3>
                 <p class="team-text__body">
-                    Nuestros consultores multidisciplinarios combinan un profundo conocimiento con años de experiencia, generando soluciones de valor que transforman organizaciones. Innovación, excelencia y compromiso marcan cada proyecto.
+                    NUESTROS CONSULTORES MULTIDISCIPLINARIOS COMBINAN UN PROFUNDO CONOCIMIENTO CON AÑOS DE EXPERIENCIA, GENERANDO SOLUCIONES DE VALOR QUE TRANSFORMAN ORGANIZACIONES. INNOVACIÓN, EXCELENCIA Y COMPROMISO MARCAN CADA PROYECTO.
+
                 </p>
                 <p class="team-text__body">
-                    A través de metodologías ágiles y un enfoque centrado en el cliente, convertimos retos en oportunidades y apoyamos el crecimiento sostenible de tu empresa.
+                    A TRAVÉS DE METODOLOGÍAS ÁGILES Y UN ENFOQUE CENTRADO EN EL CLIENTE, CONVERTIMOS RETOS EN OPORTUNIDADES Y APOYAMOS EL CRECIMIENTO SOSTENIBLE DE TU EMPRESA.
+
                 </p>
             </div>
 
@@ -215,28 +217,39 @@
                 </article>
             </div>
         </section>
+        <!-- Contenedor que agrupa las dos secciones en columnas -->
 
-        <!-- Sección Contacto -->
-        <section id="contacto" class="contact-section container">
-            <div class="container">
-                <h2 class="section-title">Contáctenos</h2>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo electrónico</label>
-                        <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar mensaje</button>
-                </form>
+        <section class="dual-columns">
+
+            <!-- Columna 1: Tarjeta presentación -->
+            <div class="card-column">
+                <h2 class="section-title">Tu experiencia en Realidad Aumentada</h2>
+                <div class="card">
+                    <img src="img/tarjeta.jpg" alt="Tarjeta de presentación" loading="lazy">
+                    <p>Gestión del conocimiento enfocada en la generación de valor y mejoramiento organizacional.</p>
+                </div>
             </div>
+
+            <!-- Columna 2: Formulario de contacto -->
+            <div class="form-column">
+                <div class="form-container">
+                    <h2 class="heading orange">Contáctenos</h2>
+                    <form class="form">
+                        <input type="text" id="nombre" name="nombre" class="input" placeholder="Tu nombre" required />
+                        <input type="email" id="email" name="email" class="input" placeholder="tu@correo.com" required />
+                        <textarea id="mensaje" name="mensaje" class="textarea" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+                        <div class="button-container">
+                            <button type="submit" class="send-button">Enviar mensaje</button>
+                            <div class="reset-button-container">
+                                <button type="reset" class="reset-button">Borrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </section>
+
 
     </main>
 
