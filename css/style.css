@@ -268,7 +268,7 @@ section {
 }
 
 .card {
-    background: #0e1e33;
+    background-color: transparent;
     /* Ligero contraste con el fondo del body (#041222) */
     border-radius: 1rem;
     padding: 2rem 1.5rem;
