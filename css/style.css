@@ -150,7 +150,7 @@ body {
 }
 
 .site-nav__list a:hover {
-    color: #0d6efd;
+    color: #204464;
 }
 
 .site-nav__list a:hover::after {
@@ -197,7 +197,7 @@ body {
 }
 
 .site-logo:hover .site-logo__text {
-    color: #0d6efd;
+    color: #204464;
     /* color de acento */
 }
 
@@ -264,12 +264,14 @@ section {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    margin: 2rem 1rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 .card {
     background-color: transparent;
-    /* Ligero contraste con el fondo del body (#041222) */
+    /* se ve el fondo oscuro del body */
     border-radius: 1rem;
     padding: 2rem 1.5rem;
     box-shadow: -8px -8px 16px rgba(255, 255, 255, 0.05), 8px 8px 16px rgba(0, 0, 0, 0.5);
@@ -286,13 +288,12 @@ section {
 .card h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #ffffff;
+    color: #fff;
 }
 
 .card p {
     font-size: 1rem;
     line-height: 1.6;
-    font-weight: bold;
     color: #a0b0c0;
     font-weight: 400;
 }
@@ -337,6 +338,68 @@ h2.section-title::after {
 
 
 /* ========================================
+   Slider de Servicios (fade + nav buttons)
+   ======================================== */
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto 1rem;
+    overflow: hidden;
+    border-radius: .5rem;
+}
+
+.carousel {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+.carousel-nav {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    z-index: 10;
+}
+
+.carousel-nav button {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.carousel-nav button.active {
+    background: #e08d29;
+    border-color: #e08d29;
+}
+
+
+/* ========================================
    SECCIÓN SERVICIOS: GRID + BOTONES
    ======================================== */
 
@@ -360,24 +423,32 @@ h2.section-title::after {
 
 .servicios-figure {
     text-align: center;
-    margin: 2rem 0;
+    max-width: 50%;
+    margin: 0 auto;
 }
 
+
+/* Limita la figura y aplica hover sobre la img */
+
 .servicios-figure img {
-    max-width: 100%;
+    display: block;
+    width: 100%;
     height: auto;
     border-radius: .5rem;
-    box-shadow: 0 4px 12px rgba(28, 95, 228, 0.3);
-    display: inline-block;
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.servicios-figure:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
 }
 
 .servicios-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-    column-gap: 10px;
-    /* separación horizontal reducida */
-    row-gap: 20px;
-    /* separación vertical algo mayor */
+    column-gap: .75rem;
+    row-gap: 1rem;
     justify-items: center;
     margin: 1.5rem 1rem 3rem;
 }
@@ -385,50 +456,37 @@ h2.section-title::after {
 .servicio-btn {
     display: inline-block;
     padding: .75rem 1.25rem;
-    max-width: 10rem;
+    max-width: 9rem;
     width: 100%;
-    text-align: center;
+    margin: .25rem 0;
     font-size: 1rem;
     font-weight: 600;
-    line-height: 1.2;
     color: #fff;
     text-decoration: none;
     background: linear-gradient(135deg, #192e41 0%, #1c273c 100%);
     border: none;
     border-radius: .75rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     transition: transform .2s ease, box-shadow .2s ease, background .3s ease;
-    margin: 0;
 }
 
 .servicio-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #313e60 0%, #204464 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #1c273c 0%, #313e60 100%);
 }
 
 .servicio-btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 /* Responsive */
 
 @media (max-width: 768px) {
-    .servicios-grid {
-        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    }
-}
-
-
-/* ========================================
-   RESPONSIVE
-   ======================================== */
-
-@media (max-width:768px) {
-    .cards-grid {
-        grid-template-columns: 1fr;
+    .carousel-container {
+        max-width: 100%;
     }
     .servicios-grid {
         grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
@@ -450,53 +508,104 @@ h2.section-title::after {
 }
 
 
-/* Grid centrado: 3 columnas fijas en desktop */
+/* Grid fijo 4 columnas de 180px, centrado */
 
 .image-gallery {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 90rem;
-    margin: 0 auto;
+    grid-template-columns: repeat(4, 180px);
+    /* 4 columnas fijas */
+    gap: 2rem;
+    /* más separación */
+    justify-content: center;
+    /* centro horizontal */
+    margin: 2rem auto;
+    /* arriba/abajo y centrado */
+    padding: 0 1rem;
+    /* respiración lateral en móvil */
+    max-width: none;
+    /* anulamos el anterior */
+    z-index: 1;
 }
 
+
+/* Responsive: tablet = 2 columnas */
+
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(2, 180px);
+    }
+}
+
+
+/* Responsive: móvil = 1 columna */
+
+@media (max-width: 480px) {
+    .image-gallery {
+        grid-template-columns: 180px;
+    }
+}
+
+
+/* Cada celda de avatar */
+
 .image-gallery figure {
+    width: 180px;
+    /* ancho fijo */
+    height: 180px;
+    /* alto fijo */
     position: relative;
     overflow: hidden;
     border-radius: .5rem;
+    background: rgba(255, 255, 255, 0.05);
+    transition: transform .3s ease, box-shadow .3s ease;
+    /* Neumorphic box-shadow */
+    box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.1), 6px 6px 12px rgba(0, 0, 0, 0.4);
 }
 
+.image-gallery figure:hover {
+    transform: translateY(-5px);
+    box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.15), 4px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Imagen circular dentro */
+
 .image-gallery img {
-    display: block;
     width: 100%;
-    aspect-ratio: 1/1;
+    height: 100%;
+    /* ocupa toda la celda */
     object-fit: cover;
-    transition: transform .3s ease;
+    border-radius: 50%;
+    padding: .25rem;
+    /* para dejar hueco a la sombra */
+    background: #fff;
+    /* fondo para el círculo */
+    transition: transform .3s, filter .3s;
 }
 
 .image-gallery figure:hover img {
     transform: scale(1.05);
+    filter: brightness(.8);
 }
 
 
-/* Overlay oculto por defecto */
+/* Overlay (si lo usas) */
 
 .image-gallery figcaption {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1rem;
+    padding: .5rem;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
+    font-size: .9rem;
+    line-height: 1.2;
+    text-align: center;
     opacity: 0;
     transform: translateY(100%);
     transition: transform .3s ease, opacity .3s ease;
-    text-align: center;
 }
-
-
-/* Al pasar el ratón, mostramos el overlay */
 
 .image-gallery figure:hover figcaption {
     opacity: 1;
@@ -522,42 +631,6 @@ h2.section-title::after {
     background: var(--pico-primary, #0d6efd);
     margin: .5rem auto 0;
     border-radius: 2px;
-}
-
-
-/* Figura y foto */
-
-.image-gallery figure {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: .5rem;
-    overflow: hidden;
-    transition: transform .3s, box-shadow .3s;
-}
-
-.image-gallery figure:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.image-gallery img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: transform .3s, filter .3s;
-}
-
-.image-gallery figure:hover img {
-    transform: scale(1.05);
-    filter: brightness(.8);
-}
-
-.image-gallery figcaption {
-    padding: .5rem;
-    color: #fff;
-    font-size: .9rem;
-    line-height: 1.2;
 }
 
 
@@ -1099,4 +1172,69 @@ h2.section-title::after {
 }
 
 
-/* Bot diseño */
+/* Back to Top */
+
+
+/* Animación de flotación */
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Botón Back to Top */
+
+
+/* Animación de flotación continua */
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Botón Back to Top */
+
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    top: 35rem;
+    right: 2rem;
+    display: none;
+    /* se muestra/vía JS */
+    width: 3rem;
+    height: 3rem;
+    background: #e08d29;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    /* flotación continua */
+    animation: float 2s ease-in-out infinite;
+}
+
+
+/* Opcional: al pasar el cursor reducir opacidad o escalar */
+
+#back-to-top:hover {
+    opacity: 0.8;
+    /* transform: scale(1.1);  */
+}

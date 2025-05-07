@@ -70,11 +70,24 @@
         </section>
 
         <!-- Servicios -->
-        <section id="servicios">
+        <section id="servicios" class="servicios-figure">
             <h2 class="section-title">Nuestros Servicios</h2>
-            <figure class="servicios-figure">
-                <img src="img/nuestrosservicios.jpg" alt="Nuestros Servicios" loading="lazy">
-            </figure>
+
+            <!-- Carrusel -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="img/nuestrosservicios1.jpg" alt="Servicio 1" class="active" loading="lazy">
+                    <img src="img/nuestrosservicios2.jpg" alt="Servicio 2" loading="lazy">
+                    <img src="img/nuestrosservicios3.jpg" alt="Servicio 3" loading="lazy">
+                </div>
+                <div class="carousel-nav">
+                    <button data-index="0" class="active"></button>
+                    <button data-index="1"></button>
+                    <button data-index="2"></button>
+                </div>
+            </div>
+
+            <!-- Botones de Servicio -->
             <div class="servicios-grid">
                 <a href="https://www.ennodex.com/transformacion-organizacional/" class="contrast servicio-btn">
                     Transformación<br>Organizacional
@@ -92,8 +105,9 @@
         </section>
 
 
+
         <!-- Sección Equipo -->
-        <section id="equipo">
+        <section id="cards-grid" class="container">
 
             <h2 class="section-title">Nuestro equipo</h2>
 
@@ -149,18 +163,20 @@
                     </figure>
                 </div>
             </div>
-            <div class="team-text neumorphic-card">
-                <h3 class="team-text__title">Profesionales apasionados</h3>
-                <p class="team-text__body">
-                    NUESTROS CONSULTORES MULTIDISCIPLINARIOS COMBINAN UN PROFUNDO CONOCIMIENTO CON AÑOS DE EXPERIENCIA, GENERANDO SOLUCIONES DE VALOR QUE TRANSFORMAN ORGANIZACIONES. INNOVACIÓN, EXCELENCIA Y COMPROMISO MARCAN CADA PROYECTO.
+            <div class="cards-grid">
+                <div class="card">
+                    <h2 class="team-text__title">Profesionales apasionados</h2>
+                    <p class="team-text__body">
+                        NUESTROS CONSULTORES MULTIDISCIPLINARIOS COMBINAN UN PROFUNDO CONOCIMIENTO CON AÑOS DE EXPERIENCIA, GENERANDO SOLUCIONES DE VALOR QUE TRANSFORMAN ORGANIZACIONES. INNOVACIÓN, EXCELENCIA Y COMPROMISO MARCAN CADA PROYECTO.
 
-                </p>
-                <p class="team-text__body">
-                    A TRAVÉS DE METODOLOGÍAS ÁGILES Y UN ENFOQUE CENTRADO EN EL CLIENTE, CONVERTIMOS RETOS EN OPORTUNIDADES Y APOYAMOS EL CRECIMIENTO SOSTENIBLE DE TU EMPRESA.
+                    </p>
+                    <p class="team-text__body">
+                        A TRAVÉS DE METODOLOGÍAS ÁGILES Y UN ENFOQUE CENTRADO EN EL CLIENTE, CONVERTIMOS RETOS EN OPORTUNIDADES Y APOYAMOS EL CRECIMIENTO SOSTENIBLE DE TU EMPRESA.
 
-                </p>
+
+                    </p>
+                </div>
             </div>
-
 
         </section>
 
@@ -445,6 +461,8 @@
 
 
     </script>
+    <!-- Botón Back to Top -->
+    <button id="back-to-top" title="Volver arriba">↑</button>
 
 </body>
 
